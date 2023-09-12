@@ -20,10 +20,9 @@
   --text-color: #000;
 
   /* fonts */
-  --body-font-family: roboto, roboto-fallback;
+  --body-font-family: 'Gilda Display', serif;
   --heading-font-family: var(--body-font-family);
-  --fixed-font-family: 'Roboto Mono', menlo, consolas, 'Liberation Mono', monospace;
-
+  --fixed-font-family: 'Gilda Display', serif;
   /* body sizes */
   --body-font-size-m: 22px;
   --body-font-size-s: 18px;
