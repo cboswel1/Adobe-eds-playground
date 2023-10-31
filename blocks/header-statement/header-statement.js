@@ -1,4 +1,4 @@
-import { addSectionInnerWrapperDiv } from "../../scripts/helpers.js";
+import { addSectionInnerWrapperDiv } from "../../scripts/dom-helpers.js";
 
 export default function decorateMain(block) {
     addSectionInnerWrapperDiv(block);
