@@ -14,6 +14,8 @@
 
 .cards .cards-card-body {
   margin: 16px;
+  border-radius: 99;
+ 
 }
 
 .cards .cards-card-image {

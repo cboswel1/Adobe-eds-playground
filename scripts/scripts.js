@@ -13,7 +13,7 @@ import {
   loadCSS,
 } from './lib-franklin.js';
 
-const LCP_BLOCKS = []; // add your LCP blocks to the list
+const LCP_BLOCKS = ['header-statement']; // add your LCP blocks to the list
 
 /**
  * Builds hero block and prepends to main in a new section.
@@ -116,6 +116,28 @@ async function loadLazy(doc) {
   sampleRUM.observe(main.querySelectorAll('picture > img'));
 }
 
+export function addFadeUp(element) {
+  const observerOptions = {
+    threshold: 0.10,
+    rootMargin: '-10px 0px -10px 0px',
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  const sections = Array.from(element.getElementsByClassName('fadeup'));
+  sections.forEach((section, i) => {
+    // remove first section (block) from fadeup with a fadeup class
+    if (!i) section.classList.add('in-view');
+    observer.observe(section);
+  });
+}
 /**
  * Loads everything that happens a lot later,
  * without impacting the user experience.
